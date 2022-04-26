@@ -76,3 +76,6 @@ if __name__== '__main__':
     for i in range(10):
         carro2 = ZonaSulVeiculoFactory(choice(veiculos_disponiveis_zona_sul))
         carro2.buscar_cliente()
+
+
+# Factory method
