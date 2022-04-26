@@ -1,7 +1,3 @@
-from re import A
-from pip import main
-
-
 class AppSettings:
     _instance = None
 
