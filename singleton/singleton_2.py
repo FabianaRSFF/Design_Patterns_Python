@@ -1,6 +1,3 @@
-from re import T
-
-
 def singleton(the_class):
     instances = {}
 
