@@ -1,6 +1,7 @@
 # Monostate ou Borg - É uma variação do singleton para 
 # garantir que
 # estado do objeto seja igual para todas as instâncias.
+from mailbox import NotEmptyError
 from pip import main
 
 
@@ -14,21 +15,25 @@ class StringReprMixin:
 
 
 class MonoStateSimple(StringReprMixin):
-    _state = {
+    _state: dict= {
         'x': 10,
         'y': 20,
     }
 
-    def __init__(self):
-        self.x = 1
+    def __init__(self, nome=None, sobrenome=None):
         self.__dict__ = self._state
 
+        if nome is not None:
+            self.nome = nome
+        if sobrenome is not None:
+            self.sobrenome = sobrenome
+
 if __name__ == '__main__':
-    m1 = MonoStateSimple()
+    m1 = MonoStateSimple('Luiz')
     m2 = MonoStateSimple()
     print(m1)
     print(m2)
-    # Se  você muda o valor em uma classe, o valor muda nas duas.
-    m1.x = 'qualquer coisa'
+    # Se  você muda o valor em uma classe, o valor muda em todas.
+    m1.x = 'LulaJá'
     print(m1)
     print(m2)
