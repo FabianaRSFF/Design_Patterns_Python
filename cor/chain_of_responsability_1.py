@@ -37,9 +37,11 @@ if __name__ == '__main__':
     print(handler_ABC('D'))
     print(handler_ABC('Z'))
     print("\U0001F60A")
+    print("\U0001F496")
+    print("\U00002763")
 
 """
 De todos os padrões de projeto comportamentais, 
 meus preferidos foram os template_methods e o
-chain of responsability.U+1F60A		
+chain of responsability.U+1F60A		U+2763	U+1F496	
 """
