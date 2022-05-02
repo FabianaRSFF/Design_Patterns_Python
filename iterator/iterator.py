@@ -32,6 +32,20 @@ class MyIterator(Iterator):
             raise StopIteration
 
 
+class ReverseIterator(Iterator):
+    def __init__(self, collection: List[Any]) -> None:
+        self.collection = collection
+        self._index = -1
+
+    def __next__(self):
+        try:
+            item = self.collection[self._index]
+            self._index -= 1
+            return item
+        except IndexError:
+            raise StopIteration
+
+
 class MyList(Iterable):
     def __init__(self)-> None:
         self._items:List[Any] = []
@@ -41,6 +55,9 @@ class MyList(Iterable):
 
     def __iter__(self):
         return MyIterator(self._items)
+
+    def reverse_iterator(self):
+        return ReverseIterator(self._items)
 
     def __str__(self)-> str:
         return f'{self.__class__.__name__}({self._items})'
@@ -61,6 +78,10 @@ if __name__ == '__main__':
 
     #print(mylist) U+2764
     for value in mylist:
+        print(value)
+        print()
+    
+    for value in mylist.reverse_iterator():
         print(value)
         
         
