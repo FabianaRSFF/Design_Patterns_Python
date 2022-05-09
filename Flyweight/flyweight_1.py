@@ -94,3 +94,4 @@ if __name__ == '__main__':
     janja.address_details = 'casa'
     janja.add_address(a2)
     janja.list_addresses()
+    # teste
